@@ -11,4 +11,6 @@ First thing to do is install required software
 For database, you can choose between install Postgres locally, or you can install docker, than run `docker-compose up -d` on project root folder.
 By doing this you'll have postgres running containerized and do not need to install anything else.
 
+You need to create `aeemby_db` database. It could be automized by a terraform script. But for this POC it's not at MVP.
+
 After you have everything installed, you can use the command `./gradlew bootRun` and check if spring-boot starts correctly 
