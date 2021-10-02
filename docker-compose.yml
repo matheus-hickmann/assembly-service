@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "@#Postgres!"
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./postgres-volume:/data/postgres_db
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge
