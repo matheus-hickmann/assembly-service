@@ -1,1 +1,14 @@
-
+spring:
+  datasource:
+    platform: POSTGRESQL
+    url: jdbc:postgresql://localhost:15432/assembly_db
+    username: postgres
+    password: "@#Postgres!"
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      properties:
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+server:
+  port: 8080
