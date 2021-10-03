@@ -17,7 +17,7 @@ public class GetAllAgendasService {
         this.repository = repository;
     }
 
-    public List<Agenda> getAllAgendas() {
+    public List<Agenda> execute() {
         return repository.findAll();
     }
 }

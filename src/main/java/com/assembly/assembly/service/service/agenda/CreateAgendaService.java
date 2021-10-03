@@ -19,7 +19,7 @@ public class CreateAgendaService {
         this.repository = repository;
     }
 
-    public Agenda createAgenda(String name, String description, String creatorDocument) {
+    public Agenda execute(String name,String description,String creatorDocument) {
 
         //TODO: Implement validations
         return repository.save( Agenda.builder()
