@@ -45,7 +45,7 @@ public class AgendaController {
     }
 
     @GetMapping("/{id}")
-    @Operation(summary = "Get all agendas")
+    @Operation(summary = "Get an agenda by id")
     public AgendaResponse getAgenda(@PathVariable UUID id) {
         log.info("[GET] - /agendas/{} | Request received", id.toString());
         Agenda agenda = getAgendaByIdService.execute(id);
