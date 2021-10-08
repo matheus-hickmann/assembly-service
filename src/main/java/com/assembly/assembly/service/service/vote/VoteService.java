@@ -18,14 +18,19 @@ public class VoteService {
 
     private final VoteRepository repository;
     private final GetSessionService getSessionService;
+    private final ValidateUserService validateUserService;
 
     @Autowired
-    public VoteService(VoteRepository repository,GetSessionService getSessionService) {
+    public VoteService(VoteRepository repository,GetSessionService getSessionService,ValidateUserService validateUserService) {
         this.repository = repository;
         this.getSessionService = getSessionService;
+        this.validateUserService = validateUserService;
     }
 
     public Vote execute(String userDocument, VoteEnum voteEnum, UUID sessionId) {
+        if (!validateUserService.execute(userDocument)) {
+            throw new IllegalArgumentException();
+        }
         Session session = getSessionService.execute(sessionId);
 
         if (!OPEN_STATUS.equals(session.getStatus())) {
