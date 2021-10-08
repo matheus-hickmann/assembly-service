@@ -16,3 +16,7 @@ server:
 springdoc:
   swagger-ui:
     path: api-docs.html
+
+#Feign Clients
+document-api:
+  url: https://user-info.herokuapp.com/users/
