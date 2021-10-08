@@ -2,6 +2,7 @@ package com.assembly.assembly.service.v1.service.vote;
 
 import com.assembly.assembly.service.v1.clients.DocumentValidationClient;
 import com.assembly.assembly.service.enums.DocumentStatus;
+import com.assembly.assembly.service.v1.clients.dtos.DocumentValidationResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,9 @@ public class ValidateUserService {
     public boolean execute(String document) {
         boolean able;
         try {
-            able = ABLE_TO_VOTE_STATUS.equals(client.getVotingStatus(document).getStatus());
+            DocumentValidationResponse votingStatus = client.getVotingStatus(document);
+            log.info("{} is {}", document, votingStatus.getStatus());
+            able = ABLE_TO_VOTE_STATUS.equals(votingStatus.getStatus());
             return able;
         } catch (Exception e) {
             log.error("Error to validate document {}", document, e);

@@ -28,10 +28,12 @@ public class ComputeVoteService {
         Session session = getSessionService.execute(sessionId);
         List<Vote> votes = repository.findBySessionId(sessionId);
 
+        long countYes = countVotes(votes,VoteEnum.YES);
+        long countNo = countVotes(votes,VoteEnum.NO);
         return new SessionResultRecord(
                 session,
-                countVotes(votes, VoteEnum.YES),
-                countVotes(votes, VoteEnum.NO)
+                countYes,
+                countNo
         );
     }
 

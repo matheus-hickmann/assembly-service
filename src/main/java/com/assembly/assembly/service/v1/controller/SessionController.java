@@ -1,5 +1,6 @@
 package com.assembly.assembly.service.v1.controller;
 
+import com.assembly.assembly.service.v1.controller.dtos.SessionResultRecord;
 import com.assembly.assembly.service.v1.controller.dtos.requests.VoteRequest;
 import com.assembly.assembly.service.v1.controller.dtos.responses.SessionResponse;
 import com.assembly.assembly.service.v1.controller.dtos.responses.SessionResultResponse;
@@ -18,7 +19,7 @@ import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/v1/agendas/{agendaId}/session")
+@RequestMapping("v1/agendas/{agendaId}/session")
 @Slf4j
 public class SessionController {
 
@@ -54,6 +55,10 @@ public class SessionController {
     @Operation(summary = "Get session voting summary")
     public SessionResultResponse getById(@PathVariable UUID agendaId,@PathVariable UUID sessionId) {
         log.info("[GET] - /agendas/{}/session/{} | Request received", agendaId.toString(), sessionId);
-        return modelMapper.map(computeVoteService.execute(sessionId), SessionResultResponse.class);
+        SessionResultRecord sessionResult = computeVoteService.execute(sessionId);
+        return SessionResultResponse.builder()
+                .votesAgainst(sessionResult.votesAgainst())
+                .votesInFavor(sessionResult.votesInFavor())
+                .build();
     }
 }
