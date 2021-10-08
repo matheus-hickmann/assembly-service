@@ -1,11 +1,11 @@
-package com.assembly.assembly.service.service.vote;
+package com.assembly.assembly.service.v1.service.vote;
 
-import com.assembly.assembly.service.controller.dtos.SessionResultRecord;
+import com.assembly.assembly.service.v1.controller.dtos.SessionResultRecord;
 import com.assembly.assembly.service.enums.VoteEnum;
 import com.assembly.assembly.service.model.Session;
 import com.assembly.assembly.service.model.Vote;
 import com.assembly.assembly.service.repository.VoteRepository;
-import com.assembly.assembly.service.service.session.GetSessionService;
+import com.assembly.assembly.service.v1.service.session.GetSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,11 +1,11 @@
-package com.assembly.assembly.service.service.session;
+package com.assembly.assembly.service.v1.service.session;
 
 import com.assembly.assembly.service.enums.SessionStatus;
 import com.assembly.assembly.service.errors.exceptions.OpenedSessionException;
 import com.assembly.assembly.service.model.Agenda;
 import com.assembly.assembly.service.model.Session;
 import com.assembly.assembly.service.repository.SessionRepository;
-import com.assembly.assembly.service.service.agenda.GetAgendaByIdService;
+import com.assembly.assembly.service.v1.service.agenda.GetAgendaByIdService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

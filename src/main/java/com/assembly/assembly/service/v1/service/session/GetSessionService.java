@@ -1,4 +1,4 @@
-package com.assembly.assembly.service.service.session;
+package com.assembly.assembly.service.v1.service.session;
 
 import com.assembly.assembly.service.errors.exceptions.SessionNotFoundException;
 import com.assembly.assembly.service.model.Session;

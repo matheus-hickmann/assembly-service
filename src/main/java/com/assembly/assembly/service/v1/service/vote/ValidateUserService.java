@@ -1,6 +1,6 @@
-package com.assembly.assembly.service.service.vote;
+package com.assembly.assembly.service.v1.service.vote;
 
-import com.assembly.assembly.service.clients.DocumentValidationClient;
+import com.assembly.assembly.service.v1.clients.DocumentValidationClient;
 import com.assembly.assembly.service.enums.DocumentStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

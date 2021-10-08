@@ -1,4 +1,4 @@
-package com.assembly.assembly.service.controller.dtos.requests;
+package com.assembly.assembly.service.v1.controller.dtos.requests;
 
 import com.assembly.assembly.service.enums.VoteEnum;
 import lombok.AllArgsConstructor;

@@ -1,13 +1,13 @@
-package com.assembly.assembly.service.controller;
+package com.assembly.assembly.service.v1.controller;
 
-import com.assembly.assembly.service.controller.dtos.requests.VoteRequest;
-import com.assembly.assembly.service.controller.dtos.responses.SessionResponse;
-import com.assembly.assembly.service.controller.dtos.responses.SessionResultResponse;
-import com.assembly.assembly.service.controller.dtos.responses.VoteResponse;
+import com.assembly.assembly.service.v1.controller.dtos.requests.VoteRequest;
+import com.assembly.assembly.service.v1.controller.dtos.responses.SessionResponse;
+import com.assembly.assembly.service.v1.controller.dtos.responses.SessionResultResponse;
+import com.assembly.assembly.service.v1.controller.dtos.responses.VoteResponse;
 import com.assembly.assembly.service.model.Session;
-import com.assembly.assembly.service.service.session.OpenSessionService;
-import com.assembly.assembly.service.service.vote.ComputeVoteService;
-import com.assembly.assembly.service.service.vote.VoteService;
+import com.assembly.assembly.service.v1.service.session.OpenSessionService;
+import com.assembly.assembly.service.v1.service.vote.ComputeVoteService;
+import com.assembly.assembly.service.v1.service.vote.VoteService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/agendas/{agendaId}/session")
+@RequestMapping("/v1/agendas/{agendaId}/session")
 @Slf4j
 public class SessionController {
 

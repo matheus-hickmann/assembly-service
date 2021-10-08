@@ -1,4 +1,4 @@
-package com.assembly.assembly.service.controller.dtos;
+package com.assembly.assembly.service.v1.controller.dtos;
 
 import com.assembly.assembly.service.model.Session;
 

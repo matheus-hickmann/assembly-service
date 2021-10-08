@@ -1,4 +1,4 @@
-package com.assembly.assembly.service.service.agenda;
+package com.assembly.assembly.service.v1.service.agenda;
 
 import com.assembly.assembly.service.errors.exceptions.AgendaNotFoundException;
 import com.assembly.assembly.service.model.Agenda;

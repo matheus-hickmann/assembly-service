@@ -1,4 +1,4 @@
-package com.assembly.assembly.service.clients.dtos;
+package com.assembly.assembly.service.v1.clients.dtos;
 
 import com.assembly.assembly.service.enums.DocumentStatus;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.assembly.assembly.service.controller.dtos.responses;
+package com.assembly.assembly.service.v1.controller.dtos.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
