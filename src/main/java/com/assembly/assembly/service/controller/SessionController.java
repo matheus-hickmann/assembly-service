@@ -44,12 +44,14 @@ public class SessionController {
     }
 
     @PostMapping("{sessionId}/vote")
+    @Operation(summary = "Vote in session")
     public VoteResponse vote(@PathVariable UUID agendaId, @PathVariable UUID sessionId, @Valid @RequestBody VoteRequest vote) {
         log.info("[POST] - /agendas/{}/session/vote | Request received for user: {}", agendaId.toString(), vote.getDocument());
         return modelMapper.map(voteService.execute(vote.getDocument(),vote.getVote(),sessionId), VoteResponse.class);
     }
 
     @GetMapping("{sessionId}")
+    @Operation(summary = "Get session voting summary")
     public SessionResultResponse getById(@PathVariable UUID agendaId,@PathVariable UUID sessionId) {
         log.info("[GET] - /agendas/{}/session/{} | Request received", agendaId.toString(), sessionId);
         return modelMapper.map(computeVoteService.execute(sessionId), SessionResultResponse.class);
