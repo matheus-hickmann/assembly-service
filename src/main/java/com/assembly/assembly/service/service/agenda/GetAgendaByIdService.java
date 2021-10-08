@@ -21,6 +21,10 @@ public class GetAgendaByIdService {
     public Agenda execute(UUID id){
         Optional<Agenda> optionalAgenda = agendaRepository.findById(id);
 
+        if (optionalAgenda.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
         return optionalAgenda.get();
     }
 }
