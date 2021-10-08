@@ -20,8 +20,6 @@ public class CreateAgendaService {
     }
 
     public Agenda execute(String name,String description,String creatorDocument) {
-
-        //TODO: Implement validations
         return repository.save( Agenda.builder()
                                         .name( name )
                                         .creatorDocument( creatorDocument )

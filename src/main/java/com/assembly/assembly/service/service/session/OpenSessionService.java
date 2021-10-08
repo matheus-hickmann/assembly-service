@@ -1,6 +1,7 @@
 package com.assembly.assembly.service.service.session;
 
 import com.assembly.assembly.service.enums.SessionStatus;
+import com.assembly.assembly.service.errors.exceptions.OpenedSessionException;
 import com.assembly.assembly.service.model.Agenda;
 import com.assembly.assembly.service.model.Session;
 import com.assembly.assembly.service.repository.SessionRepository;
@@ -11,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Objects;
@@ -36,7 +35,7 @@ public class OpenSessionService {
 
     public Session execute(UUID id, Integer duration) {
         if (agendaContainsOpenedSession(id)) {
-            throw new IllegalArgumentException();
+            throw new OpenedSessionException();
         }
         LocalDateTime now = LocalDateTime.now();
         Agenda agenda = getAgendaByIdService.execute(id);

@@ -2,6 +2,9 @@ package com.assembly.assembly.service.service.vote;
 
 import com.assembly.assembly.service.enums.SessionStatus;
 import com.assembly.assembly.service.enums.VoteEnum;
+import com.assembly.assembly.service.errors.exceptions.DuplicatedVoteException;
+import com.assembly.assembly.service.errors.exceptions.InvalidDocumentException;
+import com.assembly.assembly.service.errors.exceptions.VoteInSessionException;
 import com.assembly.assembly.service.model.Session;
 import com.assembly.assembly.service.model.Vote;
 import com.assembly.assembly.service.repository.VoteRepository;
@@ -29,16 +32,16 @@ public class VoteService {
 
     public Vote execute(String userDocument, VoteEnum voteEnum, UUID sessionId) {
         if (!validateUserService.execute(userDocument)) {
-            throw new IllegalArgumentException();
+            throw new InvalidDocumentException();
         }
         Session session = getSessionService.execute(sessionId);
 
         if (!OPEN_STATUS.equals(session.getStatus())) {
-            throw new IllegalArgumentException();
+            throw new VoteInSessionException();
         }
 
         if (repository.existsBySessionIdAndUserDocument(sessionId, userDocument)) {
-            throw new IllegalArgumentException();
+            throw new DuplicatedVoteException();
         }
 
         return repository.save(Vote.builder()

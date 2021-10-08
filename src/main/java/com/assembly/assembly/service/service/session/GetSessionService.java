@@ -1,5 +1,6 @@
 package com.assembly.assembly.service.service.session;
 
+import com.assembly.assembly.service.errors.exceptions.SessionNotFoundException;
 import com.assembly.assembly.service.model.Session;
 import com.assembly.assembly.service.repository.SessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class GetSessionService {
         Optional<Session> optionalSession = repository.findById(id);
 
         if (optionalSession.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new SessionNotFoundException();
         }
 
         return optionalSession.get();

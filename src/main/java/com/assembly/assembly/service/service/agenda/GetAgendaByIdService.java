@@ -1,5 +1,6 @@
 package com.assembly.assembly.service.service.agenda;
 
+import com.assembly.assembly.service.errors.exceptions.AgendaNotFoundException;
 import com.assembly.assembly.service.model.Agenda;
 import com.assembly.assembly.service.repository.AgendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class GetAgendaByIdService {
         Optional<Agenda> optionalAgenda = agendaRepository.findById(id);
 
         if (optionalAgenda.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new AgendaNotFoundException();
         }
 
         return optionalAgenda.get();
